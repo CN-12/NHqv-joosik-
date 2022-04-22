@@ -129,7 +129,7 @@ int & show(int & a) {
 void Ssell(Samsung *(& s), int sell) {
     if(sell > s-> amount) cout << "주식이 부족해서 판매에 실패했습니다" << endl;
     else {
-        money = money + s -> value - 500 - (s->value*0.01);
+        money = money + (s -> value*sell) - 500 - (s->value*0.01);
         s->amount -= sell;
         cout << sell << "개 판매완료" << endl;
     }
@@ -138,7 +138,7 @@ void Ssell(Samsung *(& s), int sell) {
 void Lsell(LG *(& s), int sell) {
     if(sell > s-> amount) cout << "주식이 부족해서 판매에 실패했습니다" << endl;
     else {
-        money = money + s -> value - 500 - (s->value*0.01);
+        money = money + (s -> value*sell) - 500 - (s->value*0.01);
         s->amount -= sell;
         cout << sell << "개 판매완료" << endl;
     }
@@ -146,11 +146,12 @@ void Lsell(LG *(& s), int sell) {
 void Ksell(KAKAO *(& s), int sell) {
     if(sell > s-> amount) cout << "주식이 부족해서 판매에 실패했습니다" << endl;
     else {
-        money = money + s -> value - 500 - (s->value*0.01);
+        money = money + (s -> value*sell) - 500 - (s->value*0.01);
         s->amount -= sell;
         cout << sell << "개 판매완료" << endl;
     }
 }
+
 void Csell(COUPANG *(& s), int sell=0) {
     if(sell > s-> amount) cout << "주식이 부족해서 판매에 실패했습니다" << endl;
     else {
@@ -168,6 +169,7 @@ void Csell(COUPANG *(& s), int sell, char * name) {
         cout << name << "님이 " << sell << "개 판매완료" << endl;
     }
 }
+
 void Csell(int sell) {
     COUPANG *(& s) = s4;
     if(sell > s-> amount) cout << "주식이 부족해서 판매에 실패했습니다" << endl;
@@ -177,6 +179,7 @@ void Csell(int sell) {
         cout << sell << "개 판매완료" << endl;
     }
 }
+
 void sell() {
    char select;
     bool chan1=false;
